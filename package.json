@@ -1,0 +1,22 @@
+{
+  "name": "js-best-practices-real-time-chat",
+  "version": "0.0.0",
+  "description": "node.js example app for the Js Best Practices Book",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mcollina/js-best-practices-real-time-chat.git"
+  },
+  "keywords": [
+    "example",
+    "chat",
+    "socket.io",
+    "express",
+    "bootstrap",
+    "grunt",
+    "bower"
+  ],
+  "author": "Matteo Collina <hello@matteocollina.com>",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
