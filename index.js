@@ -2,7 +2,18 @@
 var package = require("./package");
 var colors = require('colors');
 var express = require('express');
+var grunt = require("grunt");
 var app = express();
+
+require("./Gruntfile")(grunt);
+
+app.configure("development", function () {
+  grunt.tasks(["default", "watch"]);
+});
+
+app.configure("production", function () {
+  grunt.tasks(["production"]);
+});
 
 app.use(express.logger());
 app.use(express.compress());
