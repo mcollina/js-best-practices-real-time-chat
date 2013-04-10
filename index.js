@@ -7,6 +7,11 @@ var app = express();
 
 require("./Gruntfile")(grunt);
 
+app.configure(function () {
+  app.engine('jade', require('jade').__express);
+  app.set('views', __dirname + '/views');
+});
+
 app.configure("development", function () {
   grunt.tasks(["default", "watch"]);
 });
@@ -25,7 +30,7 @@ app.use(express.cookieSession({
 app.use(express.static("public"));
 
 app.get("/", function (req, res) {
-  res.send("Hello world!");
+  res.render("index.jade");
 });
 
 app.listen(3000, function (err) {
