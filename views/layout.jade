@@ -5,6 +5,14 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet', href='/css/main.css')
   body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          a.brand(href="/") JS Best Practice Example Chat
+          ul.nav
+            li
+              a(href="http://www.matteocollina.com") About
+
     block content
 
     script(src='/js/main.js')
