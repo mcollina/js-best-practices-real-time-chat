@@ -4,6 +4,8 @@ var colors = require('colors');
 var express = require('express');
 var grunt = require("grunt");
 var app = express();
+var io = require("socket.io");
+var http = require("http");
 
 require("./Gruntfile")(grunt);
 
@@ -33,7 +35,14 @@ app.get("/", function (req, res) {
   res.render("index.jade");
 });
 
-app.listen(3000, function (err) {
+var server = http.createServer(app);
+io = io.listen(server);
+
+io.sockets.on('connection', function (socket) {
+  console.log("new client..".green, "feels good to be loved!".yellow);
+});
+
+server.listen(3000, function (err) {
   if (err) {
     console.log(err);
     process.exit(1);

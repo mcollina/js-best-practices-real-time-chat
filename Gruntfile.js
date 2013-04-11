@@ -3,12 +3,29 @@ module.exports = function(grunt) {
   // let do not repeat the css paths twice
   var cssPaths = ["components/bootstrap/less", "components/font-awesome/less", "assets/css"];
 
+  var jsFiles = [
+    "components/jquery/jquery.js",
+    "components/bootstrap/js/bootstrap-transition.js",
+    "components/bootstrap/js/bootstrap-alert.js",
+    "components/bootstrap/js/bootstrap-modal.js",
+    "components/bootstrap/js/bootstrap-dropdown.js",
+    "components/bootstrap/js/bootstrap-scrollspy.js",
+    "components/bootstrap/js/bootstrap-tab.js",
+    "components/bootstrap/js/bootstrap-tooltip.js",
+    "components/bootstrap/js/bootstrap-popover.js",
+    "components/bootstrap/js/bootstrap-button.js",
+    "components/bootstrap/js/bootstrap-collapse.js",
+    "components/bootstrap/js/bootstrap-carousel.js",
+    "components/bootstrap/js/bootstrap-typeahead.js",
+    "assets/js/*.js"
+  ];
+
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
       dist: {
-        src: ['components/jquery/jquery.js','components/bootstrap/js/*.js', 'assets/js/*.js'],
+        src: jsFiles,
         dest: 'public/js/main.js'
       }
     },
@@ -45,7 +62,9 @@ module.exports = function(grunt) {
         eqnull: true,
         browser: true,
         globals: {
-          console: true
+          console: true,
+          io: true,
+          $: true
         }
       }
     },
