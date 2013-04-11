@@ -3,6 +3,31 @@ extend layout
 block content
   .container
     .row
+      form
+        .span1
+        .input-append
+          input#name.span2.appendedInputButtons.no-right-border(type="text", placeholder="Your name")
+        .input-prepend.input-append
+          input#message.span8.appendedPrependedInput(type="text", placeholder="Your text")
+          button#send.btn(type="button")
+            i.icon-comment
+
+
+    .row
+      hr
+
+    .row
       .span12
-        p Hello world
+        table#messages.table.table-striped
+          thead
+            tr
+              td Name
+              td Message
+          tbody
+            tr
+              td Fullo
+              td Ciao Matteo!
+            tr
+              td Matteo
+              td Ciao Fullo!
 
