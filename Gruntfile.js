@@ -5,6 +5,7 @@ module.exports = function(grunt) {
 
   var jsFiles = [
     "components/jquery/jquery.js",
+    "components/underscore/underscore.js",
     "components/bootstrap/js/bootstrap-transition.js",
     "components/bootstrap/js/bootstrap-alert.js",
     "components/bootstrap/js/bootstrap-modal.js",
@@ -64,7 +65,8 @@ module.exports = function(grunt) {
         globals: {
           console: true,
           io: true,
-          $: true
+          $: true,
+          _: true
         }
       }
     },

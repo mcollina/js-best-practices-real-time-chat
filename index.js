@@ -40,6 +40,10 @@ io = io.listen(server);
 
 io.sockets.on('connection', function (socket) {
   console.log("new client..".green, "feels good to be loved!".yellow);
+  socket.on("chat", function (message) {
+    console.log(message)
+    socket.broadcast.emit("chat", message);
+  });
 });
 
 server.listen(3000, function (err) {

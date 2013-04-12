@@ -9,7 +9,7 @@ block content
           input#username.span2.appendedInputButtons.no-right-border(type="text", placeholder="Your name")
         .input-prepend.input-append
           input#message.span8.appendedPrependedInput(type="text", placeholder="Your text")
-          button#send.btn(type="button")
+          button#send.btn(type="submit")
             i.icon-comment
 
 
@@ -24,10 +24,8 @@ block content
               td Name
               td Message
           tbody
-            tr
-              td Fullo
-              td Ciao Matteo!
-            tr
-              td Matteo
-              td Ciao Fullo!
 
+  script#message-template(type="text/template")
+    tr
+      td <%- username %>
+      td <%- message %>
