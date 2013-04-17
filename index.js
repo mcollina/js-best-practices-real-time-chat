@@ -9,19 +9,20 @@ var http = require("http");
 
 require("./Gruntfile")(grunt);
 
-app.configure(function () {
-  app.engine('jade', require('jade').__express);
-  app.set('views', __dirname + '/views');
-});
-
 app.configure("development", function () {
-  grunt.tasks(["default", "watch"]);
+  grunt.tasks(["default"], {}, function () {
+    // nothing to do here, the compilation finished
+  });
 });
 
 app.configure("production", function () {
-  grunt.tasks(["production"]);
+  grunt.tasks(["production"], {}, function () {
+    // nothing to do here, the compilation finished
+  });
 });
 
+app.engine('jade', require('jade').__express);
+app.set('views', __dirname + '/views');
 app.use(express.logger());
 app.use(express.compress());
 app.use(express.bodyParser());
@@ -41,7 +42,6 @@ io = io.listen(server);
 io.sockets.on('connection', function (socket) {
   console.log("new client..".green, "feels good to be loved!".yellow);
   socket.on("chat", function (message) {
-    console.log(message)
     socket.broadcast.emit("chat", message);
   });
 });
